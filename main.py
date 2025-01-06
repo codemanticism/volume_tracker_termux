@@ -24,7 +24,7 @@ def volume(audio, samplebytes):
     for i in range(length):
         total += tointeger(audio, i * samplebytes, samplebytes)
     return total / length
-CHUNK = 1024
+CHUNK = 44100
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 44100
@@ -32,7 +32,7 @@ stream = p.open(format=FORMAT, channels = CHANNELS, rate = RATE, input = True, f
 file = io.open("data.bin", "ab")
 try:
     while True:
-        data = stream.read(30)
-        file.write(data)
+        data = stream.read(44100)
+        print("Volume: ", volume(data, 2))
 except KeyboardInterrupt:
     print("Stopping...")
