@@ -39,13 +39,7 @@ try:
     while True:
         data = stream.read(CHUNK)
         vol = volume(data)
-        if vol >= 10:
-            if exceeded == False:
-                print(Fore.RED, number, Style.RESET_ALL)
-                number += 1
-            exceeded = True
-        else:
-            exceeded = False
+        print(vol)
         #barfrom(vol, 0, 10, 10)
 except KeyboardInterrupt:
     print("Stopping...")
