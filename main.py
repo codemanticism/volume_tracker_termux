@@ -27,7 +27,7 @@ CHUNK = 1024
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 44100
-stream = p.open(format=FORMAT, channels = 0, rate = RATE, input = True, frames_per_buffer = CHUNK)
+stream = p.open(format=FORMAT, channels = CHANNELS, rate = RATE, input = True, frames_per_buffer = CHUNK)
 try:
     data = stream.read(30)
     print(data)
