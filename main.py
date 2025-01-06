@@ -21,7 +21,6 @@ def tointeger(data, position, bytecount):
 def volume(audio, samplebytes):
     total = 0
     length = math.floor(len(audio) / samplebytes)
-    print(length)
     for i in range(length):
         total += tointeger(audio, i * samplebytes, samplebytes)
     return total / length
@@ -33,7 +32,7 @@ stream = p.open(format=FORMAT, channels = CHANNELS, rate = RATE, input = True, f
 file = io.open("data.bin", "ab")
 try:
     while True:
-        data = stream.read(44100)
+        data = stream.read(CHUNK)
         vol = volume(data, 2)
         print("Volume: ", vol)
         barfrom(vol, 32000, 33000, 10)
