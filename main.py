@@ -18,6 +18,8 @@ def volume(audio):
     for i in range(length):
         nextvalue = audio[(i * 2) + 1]
         if (nextvalue != 0x00) and (nextvalue != 0x01):
+            if nextvalue == 0xff:
+                total += 0x100
             total += audio[i * 2]
         print(audio[ (i * 2) : ((i * 2) + 2) ])
     return total / length
