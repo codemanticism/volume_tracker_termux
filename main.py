@@ -20,8 +20,8 @@ def tointeger(data, position, bytecount):
     return total
 def volume(audio, samplebytes):
     total = 0
-    print(length)
     length = math.floor(len(audio) / samplebytes)
+    print(length)
     for i in range(length):
         total += tointeger(audio, i * samplebytes, samplebytes)
     return total / length
