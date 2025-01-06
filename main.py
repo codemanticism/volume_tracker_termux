@@ -23,7 +23,7 @@ def volume(audio):
             total -= 0x10000 - unsigned 
         else:
             total += unsigned
-    return total / length
+    return math.abs( total / length)
 CHUNK = 11025
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
