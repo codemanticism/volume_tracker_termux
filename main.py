@@ -1,4 +1,5 @@
 #Test
+from colorama import color
 import math
 import time
 import io
@@ -36,6 +37,8 @@ try:
     while True:
         data = stream.read(CHUNK)
         vol = volume(data)
+        if vol >= 10:
+            print(Fore.RED, "?????")
         barfrom(vol, 0, 10, 10)
 except KeyboardInterrupt:
     print("Stopping...")
