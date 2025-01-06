@@ -17,6 +17,8 @@ def tointeger(data, position, bytecount):
     for i in range(bytecount):
         total = total * 256
         total += data[position + i]
+    print(total)
+    print(data[position:(position + bytecount)])
     return total
 def volume(audio, samplebytes):
     total = 0
@@ -28,9 +30,8 @@ CHUNK = 11025
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 44100
+print("t", tointeger( [0xfe, 0xff], 0, 2) )
 stream = p.open(format=FORMAT, channels = CHANNELS, rate = RATE, input = True, frames_per_buffer = CHUNK)
-file = io.open("data.bin", "ab")
-print( p.get_device_count() )
 try:
     while True:
         data = stream.read(CHUNK)
