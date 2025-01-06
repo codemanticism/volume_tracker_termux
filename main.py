@@ -12,12 +12,13 @@ def barfrom(value, start, end, long):
     for i in range(int(length)):
         bar += "="
     print("[", bar, "]")
-def volume(audio, samplebytes):
+def volume(audio):
     total = 0
     length = math.floor(len(audio) / samplebytes)
     for i in range(length):
-        if audio[(i * samplebytes) + 1] != 0x00:
-            total += audio[i * samplebytes]
+        if audio[(i * 2) + 1] != 0x00:
+            total += audio[i * 2]
+        print(audio[ (i * 2) : ((i * 2) + 2) ])
     return total / length
 CHUNK = 11025
 FORMAT = pyaudio.paInt16
