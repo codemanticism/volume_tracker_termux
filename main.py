@@ -24,7 +24,7 @@ def volume(audio, samplebytes):
     return total / length
 CHUNK = 1024
 FORMAT = pyaudio.paInt16
-CHANNELS = 2
+CHANNELS = 1
 RATE = 44100
 stream = p.open(format=FORMAT, channels = 0, rate = RATE, input = True, frames_per_buffer = CHUNK, input_device_index = 0)
 try:
