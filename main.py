@@ -29,7 +29,7 @@ CHANNELS = 1
 RATE = 44100
 stream = p.open(format=FORMAT, channels = CHANNELS, rate = RATE, input = True, frames_per_buffer = CHUNK)
 try:
-    for j in range(10):
+    while True:
         data = stream.read(30)
         for i in range(int( len(data)/2 )):
             integer = tointeger(data, 2*i, 2)
