@@ -18,8 +18,9 @@ def volume(audio):
     for i in range(length):
         value = audio[(i * 2)]
         nextvalue = audio[(i * 2) + 1]
-        print( ( value + (nextvalue * 0x100) ) % 0x10000 )
-    return total / length
+        total = ( total + value + (nextvalue * 0x100) ) % 0x10000
+        # 16-bit arithmetic
+    return total
 CHUNK = 11025
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
