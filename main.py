@@ -33,6 +33,8 @@ file = io.open("data.bin", "ab")
 try:
     while True:
         data = stream.read(44100)
-        print("Volume: ", volume(data, 2))
+        vol = volume(data, 2)
+        print("Volume: ", vol)
+        barfrom(vol, 32000, 33000)
 except KeyboardInterrupt:
     print("Stopping...")
