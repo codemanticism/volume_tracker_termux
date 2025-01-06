@@ -31,9 +31,6 @@ stream = p.open(format=FORMAT, channels = CHANNELS, rate = RATE, input = True, f
 try:
     while True:
         data = stream.read(30)
-        for i in range(int( len(data)/2 )):
-            integer = tointeger(data, 2*i, 2)
-            print(integer)
-            barfrom(integer, 0, 70000, 10)
+        print(volume(data, 2))
 except KeyboardInterrupt:
     print("Stopping...")
