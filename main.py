@@ -20,11 +20,12 @@ def tointeger(data, position, bytecount):
     return total
 def volume(audio, samplebytes):
     total = 0
+    print(length)
     length = math.floor(len(audio) / samplebytes)
     for i in range(length):
         total += tointeger(audio, i * samplebytes, samplebytes)
     return total / length
-CHUNK = 44100
+CHUNK = 11025
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 44100
