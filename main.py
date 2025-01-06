@@ -6,8 +6,11 @@ import pyaudio
 p = pyaudio.PyAudio()
 print(p)
 def barfrom(value, start, end, long):
-    length = (value - start) / (end - start)
-    length = length * long
+    if value > end:
+        length = long 
+    else:
+        length = (value - start) / (end - start)
+        length = length * long
     bar = ""
     for i in range(int(length)):
         bar += "="
@@ -33,7 +36,8 @@ try:
     while True:
         data = stream.read(CHUNK)
         vol = volume(data)
-        print("Volume: ", vol)
-        #barfrom(vol, 80, 130, 10)
+        if vol:
+            print("=> 10")
+        barfrom(vol, 80, 0, 10)
 except KeyboardInterrupt:
     print("Stopping...")
