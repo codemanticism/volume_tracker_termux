@@ -33,6 +33,6 @@ try:
         data = stream.read(CHUNK)
         vol = volume(data)
         print("Volume: ", vol)
-        barfrom(vol, 80, 130, 10)
+        #barfrom(vol, 80, 130, 10)
 except KeyboardInterrupt:
     print("Stopping...")
