@@ -33,6 +33,7 @@ FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 44100
 exceeded = False
+number = 0
 stream = p.open(format=FORMAT, channels = CHANNELS, rate = RATE, input = True, frames_per_buffer = CHUNK)
 try:
     while True:
@@ -40,7 +41,8 @@ try:
         vol = volume(data)
         if vol >= 10:
             if exceeded == False:
-                print(Fore.RED, "?????", Style.RESET_ALL)
+                print(Fore.RED, number, Style.RESET_ALL)
+                number += 1
             exceeded = True
         else:
             exceeded = False
