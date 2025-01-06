@@ -21,7 +21,6 @@ def volume(audio):
             if nextvalue == 0xff:
                 total += 0x100
             total += audio[i * 2]
-        print(audio[ (i * 2) : ((i * 2) + 2) ])
     return total / length
 CHUNK = 11025
 FORMAT = pyaudio.paInt16
