@@ -14,7 +14,7 @@ def barfrom(value, start, end, long):
     print("[", bar, "]")
 def volume(audio):
     total = 0
-    length = math.floor(len(audio) / samplebytes)
+    length = math.floor(len(audio) / 16)
     for i in range(length):
         if audio[(i * 2) + 1] != 0x00:
             total += audio[i * 2]
