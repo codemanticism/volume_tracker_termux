@@ -36,6 +36,6 @@ try:
     while True:
         data = stream.read(CHUNK)
         vol = volume(data)
-        barfrom(vol, 80, 0, 10)
+        barfrom(vol, 0, 14, 10)
 except KeyboardInterrupt:
     print("Stopping...")
