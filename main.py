@@ -38,7 +38,7 @@ try:
         data = stream.read(CHUNK)
         vol = volume(data)
         if vol >= 10:
-            print(Fore.RED, "?????")
+            print(Fore.RED, "?????", Style.RESET_ALL)
         barfrom(vol, 0, 10, 10)
 except KeyboardInterrupt:
     print("Stopping...")
