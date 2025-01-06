@@ -16,7 +16,8 @@ def volume(audio):
     total = 0
     length = math.floor(len(audio) / 16)
     for i in range(length):
-        if audio[(i * 2) + 1] != 0x00:
+        nextvalue = audio[(i * 2) + 1]
+        if (nextvalue != 0x00) and (nextvalue != 0x01):
             total += audio[i * 2]
         print(audio[ (i * 2) : ((i * 2) + 2) ])
     return total / length
