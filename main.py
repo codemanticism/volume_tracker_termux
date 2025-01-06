@@ -32,5 +32,6 @@ try:
     while True:
         data = stream.read(30)
         print(volume(data, 2))
+        time.sleep(1)
 except KeyboardInterrupt:
     print("Stopping...")
