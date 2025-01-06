@@ -30,6 +30,7 @@ CHANNELS = 1
 RATE = 44100
 stream = p.open(format=FORMAT, channels = CHANNELS, rate = RATE, input = True, frames_per_buffer = CHUNK)
 file = io.open("data.bin", "ab")
+print( p.get_device_count() )
 try:
     while True:
         data = stream.read(CHUNK)
