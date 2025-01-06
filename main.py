@@ -28,17 +28,22 @@ def volume(audio):
         else:
             total += unsigned
     return abs( total / length)
-CHUNK = 11025
+CHUNK = 1024
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 44100
+exceeded = False
 stream = p.open(format=FORMAT, channels = CHANNELS, rate = RATE, input = True, frames_per_buffer = CHUNK)
 try:
     while True:
         data = stream.read(CHUNK)
         vol = volume(data)
         if vol >= 10:
-            print(Fore.RED, "?????", Style.RESET_ALL)
-        barfrom(vol, 0, 10, 10)
+            if exceeded == False:
+                print(Fore.RED, "?????", Style.RESET_ALL)
+            exceeded = True
+        else:
+            exceeded = False
+        #barfrom(vol, 0, 10, 10)
 except KeyboardInterrupt:
     print("Stopping...")
