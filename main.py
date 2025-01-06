@@ -12,7 +12,6 @@ def barfrom(value, start, end, long):
     for i in range(int(length)):
         bar += "="
     print("[", bar, "]")
-    return total
 def volume(audio, samplebytes):
     total = 0
     length = math.floor(len(audio) / samplebytes)
