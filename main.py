@@ -28,7 +28,7 @@ def volume(audio):
         else:
             total += unsigned
     return abs( total / length)
-CHUNK = 1024
+CHUNK = 4096
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 44100
