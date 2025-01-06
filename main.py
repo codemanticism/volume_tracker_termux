@@ -34,6 +34,6 @@ try:
         for i in range(int( len(data)/2 )):
             integer = tointeger(data, 2*i, 2)
             print(integer)
-            barfrom(integer)
+            barfrom(integer, 0, 70000, 10)
 except KeyboardInterrupt:
     print("Stopping...")
