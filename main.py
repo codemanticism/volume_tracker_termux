@@ -16,9 +16,9 @@ def volume(audio):
     total = 0
     length = math.floor(len(audio) / 16)
     for i in range(length):
+        value = audio[(i * 2)]
         nextvalue = audio[(i * 2) + 1]
-        if (nextvalue != 0x00) and (nextvalue != 0x01):
-            total += audio[i * 2]
+        print( ( value + (nextvalue * 0x100) ) % 0x10000 )
     return total / length
 CHUNK = 11025
 FORMAT = pyaudio.paInt16
