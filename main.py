@@ -31,7 +31,7 @@ stream = p.open(format=FORMAT, channels = CHANNELS, rate = RATE, input = True, f
 try:
     for j in range(10):
         data = stream.read(30)
-        for i in range(len(data)/2):
+        for i in range(int( len(data)/2 )):
             print(tointeger(data, 2*i, 2))
 except KeyboardInterrupt:
     print("Stopping...")
