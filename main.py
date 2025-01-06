@@ -28,7 +28,7 @@ stream = p.open(format=FORMAT, channels = CHANNELS, rate = RATE, input = True, f
 try:
     while True:
         data = stream.read(CHUNK)
-        vol = volume(data, 2)
+        vol = volume(data)
         print("Volume: ", vol)
         barfrom(vol, 80, 130, 10)
 except KeyboardInterrupt:
