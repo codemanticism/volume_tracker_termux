@@ -24,7 +24,6 @@ CHUNK = 11025
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 44100
-print("t", tointeger( [0xfe, 0xff], 0, 2) )
 stream = p.open(format=FORMAT, channels = CHANNELS, rate = RATE, input = True, frames_per_buffer = CHUNK)
 try:
     while True:
