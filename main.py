@@ -1,5 +1,5 @@
 #Test
-from colorama import color
+from colorama import Fore
 import math
 import time
 import io
