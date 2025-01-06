@@ -1,6 +1,7 @@
 #Test
 import math
 import time
+import os
 import pyaudio
 p = pyaudio.PyAudio()
 print(p)
@@ -28,10 +29,10 @@ FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 44100
 stream = p.open(format=FORMAT, channels = CHANNELS, rate = RATE, input = True, frames_per_buffer = CHUNK)
+file = os.open("data.bin", "ab")
 try:
     while True:
         data = stream.read(30)
-        print(volume(data, 2))
-        time.sleep(1)
+        file.append(data)
 except KeyboardInterrupt:
     print("Stopping...")
